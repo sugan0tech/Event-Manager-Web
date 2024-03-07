@@ -26,10 +26,16 @@
             border-radius: 5px;
         }
         
+        .navbar a.grey {
+            color: grey;
+            pointer-events: none; /* Disable further clicks */
+        }
+        
         .navbar a:hover {
             color: #ffffff;
             background-color: #f1f1f1;
         }
+        
         
         .dashboard-content {
             padding: 20px;
@@ -140,15 +146,26 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="./attendence_export.html">Attendance Export</a>
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./onduty.html">On Duty</a>
-        <a href="./events.html">Events</a>
-        <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
+        <a href="./attendence_export.html" id="attendanceExport">Attendance Export</a>
+        <a href="./dashboard.html" id="dashboard">Dashboard</a>
+        <a href="./onduty.html" id="onDuty">On Duty</a>
+        <a href="./events.html" id="events">Events</a>
+        <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);" id="logout">Logout</a>
     </div>
     
     <!-- Add your dashboard content here -->
     
-    
+    <script>
+        var navbarLinks = document.querySelectorAll('.navbar a');
+
+        navbarLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                navbarLinks.forEach(function(navLink) {
+                    navLink.classList.remove('grey');
+                });
+                this.classList.add('grey');
+            });
+        });
+    </script>
 </body>
 </html>
