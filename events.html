@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        .navbar {
+            overflow: hidden;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+        
+        .navbar a {
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .navbar a:hover {
+            color: #ffffff;
+            background-color: #f1f1f1;
+        }
+        
+        .dashboard-content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dashboard-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .dashboard-description {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .as {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .as a {
+            padding: 10px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .a:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        .navbar a {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #attendanceForm {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            cursor: pointer;
+            height: 200px;
+            transition: background-color 0.3s ease;
+            display: inline-flex !important;
+        }
+    
+        .card:hover {
+            background-color: #f1f1f1;
+        }
+        .card-container {
+            overflow-y: scroll !important;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 80%;
+            padding: 20px;
+            height: 80vh;
+        }
+         
+       
+
+        .card-content img {
+            display: none;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="./attendence_export.html">Attendance Export</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./onduty.html">On Duty</a>
+        <a href="./events.html">Events</a>
+        <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
+    </div>
+
+    <div class="card-container">
+        <div class="card" onclick="showDetails('John Doe', '123456', 'CS101', '2022-09-01', '2022-09-30')">
+            <div class="card-content">
+                <img src="https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?s=2048x2048&w=is&k=20&c=WVJmGWutzcAz-oWOLFUZfZ3zbRZKZOSXo8mPLTrEMZY=" alt="Profile Image">
+            <h3>John Doe</h3>
+            <p>Roll No: 123456</p>
+            <p>Class Code: CS101</p>
+            <p>From: 2022-09-01</p>
+            <p>To: 2022-09-30</p>
+        </div>
+     </div>
+        <div class="card" onclick="showDetails('John Doe', '123456', 'CS101', '2022-09-01', '2022-09-30')">
+            <div class="card-content">
+                <img src="https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?s=2048x2048&w=is&k=20&c=WVJmGWutzcAz-oWOLFUZfZ3zbRZKZOSXo8mPLTrEMZY=" alt="Profile Image">
+            <h3>John Doe</h3>
+            <p>Roll No: 123456</p>
+            <p>Class Code: CS101</p>
+            <p>From: 2022-09-01</p>
+            <p>To: 2022-09-30</p>
+        </div>
+     </div>
+        <div class="card" onclick="showDetails('John Doe', '123456', 'CS101', '2022-09-01', '2022-09-30')">
+            <div class="card-content">
+                <img src="https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?s=2048x2048&w=is&k=20&c=WVJmGWutzcAz-oWOLFUZfZ3zbRZKZOSXo8mPLTrEMZY=" alt="Profile Image">
+            <h3>John Doe</h3>
+            <p>Roll No: 123456</p>
+            <p>Class Code: CS101</p>
+            <p>From: 2022-09-01</p>
+            <p>To: 2022-09-30</p>
+        </div>
+     </div>
+
+
+
+
+     </div  >
+
+
+        <script>
+            function showDetails(name, rollNo, classCode, fromDate, toDate) {
+                // Create a popup window
+                var popupWindow = window.open("", "Details", "width=400,height=300");
+
+                // Set the content of the popup window
+                var content = `
+                    <h3>${name}</h3>
+                    <p>Roll No: ${rollNo}</p>
+                    <p>Class Code: ${classCode}</p>
+                    <p>From: ${fromDate}</p>
+                    <p>To: ${toDate}</p>
+                `;
+                popupWindow.document.write(content);
+            }
+        </script>
+      
+</body>
+</html>
