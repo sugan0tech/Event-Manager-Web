@@ -121,6 +121,33 @@
             border-radius: 5px;
             font-size: 16px;
         }
+        .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .input-group label {
+        font-weight: bold;
+        width: 45%;
+    }
+
+    .input-group input[type="date"] {
+        width: 50%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
         input[type="submit"] {
             background-color: #4CAF50;
@@ -131,6 +158,7 @@
             cursor: pointer;
             font-size: 18px;
             font-weight: bold;
+            align-content: center;
         }
 
         input[type="submit"]:hover {
@@ -167,6 +195,17 @@
             <option value="B">B</option>
             <option value="C">C</option>
         </select>
+        <div class="container">
+            <div class="input-group">
+                <label for="fromDate">From Date:</label>
+                <input type="date" id="fromDate" name="fromDate">
+            </div>
+    
+            <div class="input-group">
+                <label for="toDate">To Date:</label>
+                <input type="date" id="toDate" name="toDate">
+            </div>
+        </div>
         <br><br>
         <input type="submit" value="Submit">
     </form>
