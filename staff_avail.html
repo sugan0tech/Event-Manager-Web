@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Teacher Availability</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .availability {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .available {
+        color: green;
+    }
+
+    .not-available {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Check Teacher Availability</h1>
+    <form id="availabilityForm">
+        <label for="teacherID">Teacher's Email:</label>
+        <input type="text" id="teacherID" name="teacherID" placeholder="Enter your email prefix" required>
+
+        <input type="submit" value="Check Availability">
+    </form>
+    <div id="availabilityResult" class="availability" style="display: none;"></div>
+</div>
+
+<script>
+    document.getElementById('availabilityForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var teacherID = document.getElementById('teacherID').value;
+        // Here you would implement the logic to check availability based on teacherID
+        // For demonstration purposes, let's assume availability is randomly determined
+        var isAvailable = Math.random() < 0.5; // Randomly assigns availability
+
+        var availabilityResult = document.getElementById('availabilityResult');
+        availabilityResult.style.display = 'block';
+        availabilityResult.textContent = "Teacher is " + (isAvailable ? "available" : "not available");
+        availabilityResult.classList.add(isAvailable ? 'available' : 'not-available');
+    });
+</script>
+
+</body>
+</html>
