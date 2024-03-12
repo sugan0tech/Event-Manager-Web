@@ -1,228 +1,291 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Dashboard</title>
-    <style>
-        .navbar {
-            overflow: hidden;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            background-color: #f1f1f1;
-            padding: 10px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-        }
-        
-        .navbar a {
-            padding: 10px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            border-radius: 5px;
-        }
-        
-        .navbar a:hover {
-            color: #ffffff;
-            background-color: #f1f1f1;
-        }
-        
-        .dashboard-content {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dashboard-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-        
-        .dashboard-description {
-            font-size: 16px;
-            color: #777;
-        }
+  <title>Dashboard</title>
+  <style>
+    .navbar {
+      overflow: hidden;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      background-color: #f1f1f1;
+      padding: 10px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+    }
 
-        .as {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
+    .navbar a {
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      border-radius: 5px;
+    }
 
-        .as a {
-            padding: 10px;
-            color: #fff;
-            background-color: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .navbar a:hover {
+      color: #ffffff;
+      background-color: #f1f1f1;
+    }
 
-        .a:hover {
-            background-color: #555;
-            color: white;
-        }
+    .dashboard-content {
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .navbar a {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .dashboard-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
 
-        .navbar a:hover {
-            background-color: #555;
-        }
+    .dashboard-description {
+      font-size: 16px;
+      color: #777;
+    }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+    .as {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
 
-        #attendanceForm {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 400px;
-            margin-top: 20px;
-        }
+    .as a {
+      padding: 10px;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    .a:hover {
+      background-color: #555;
+      color: white;
+    }
 
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .container {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .navbar a {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #attendanceForm {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .input-group {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
     }
 
     .input-group label {
-        font-weight: bold;
-        width: 45%;
+      font-weight: bold;
+      width: 45%;
     }
 
     .input-group input[type="date"] {
-        width: 50%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
+      width: 50%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    <<<<<<< HEAD input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      align-content: center;
+    }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="navbar">
-        <a href="./attendence_export.html">Attendance Export</a>
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./onduty.html">On Duty</a>
-        <a href="./events.html">Events</a>
-        <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
+  <div class="navbar">
+    <a href="./attendence_export.html">Attendance Export</a>
+    <a href="./dashboard.html">Dashboard</a>
+    <a href="./onduty.html">On Duty</a>
+    <a href="./events.html">Events</a>
+    <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
+  </div>
+
+  <form id="attendanceForm">
+    <label for="classCode">Class Code:</label>
+    <select id="option1">
+      <option value="I">I</option>
+      <option value="II">II</option>
+      <option value="III">III</option>
+      <option value="IV">IV</option>
+    </select>
+    <select id="option2">
+      <option value="CSE">CSE</option>
+      <option value="Mech">Mech</option>
+      <option value="IT">IT</option>
+      <option value="ECE">ECE</option>
+      <option value="EEE">EEE</option>
+    </select>
+    <select id="option3">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+    <div class="container">
+      <div class="input-group">
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" name="fromDate">
+      </div>
+
+      <div class="input-group">
+        <label for="toDate">To Date:</label>
+        <input type="date" id="toDate" name="toDate">
+      </div>
     </div>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
 
-    <form id="attendanceForm">
-        <label for="classCode">Class Code:</label>
-        <select id="option1">
-            <option value="I">I</option>
-            <option value="II">II</option>
-            <option value="III">III</option>
-            <option value="IV">IV</option>
-        </select>
-        <select id="option2">
-            <option value="CSE">CSE</option>
-            <option value="Mech">Mech</option>
-            <option value="IT">IT</option>
-            <option value="ECE">ECE</option>
-            <option value="EEE">EEE</option>
-        </select>
-        <select id="option3">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-        </select>
-        <div class="container">
-            <div class="input-group">
-                <label for="fromDate">From Date:</label>
-                <input type="date" id="fromDate" name="fromDate">
-            </div>
-    
-            <div class="input-group">
-                <label for="toDate">To Date:</label>
-                <input type="date" id="toDate" name="toDate">
-            </div>
-        </div>
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+  <script>document.getElementById("attendanceForm").addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    <script>
-        document.getElementById("attendanceForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            var option1 = document.getElementById("option1").value;
-            var option2 = document.getElementById("option2").value;
-            var option3 = document.getElementById("option3").value;
-            
-            var classCode = option1 + " " + option2 + " " + option3;
-            
-            // Make the POST API call here using the classCode variable
-            
-            console.log("Class Code: " + classCode);
-        });
-    </script>
+      var option1 = document.getElementById("option1").value;
+      var option2 = document.getElementById("option2").value;
+      var option3 = document.getElementById("option3").value;
+
+      var classCode = option1 + " " + option2 + " " + option3;
+
+      // Define the URL for the POST request
+      var url = 'http://localhost:9090/export';
+
+      // Define the data to be sent in JSON format
+      var jsonData = {
+        classCode: classCode,
+        fromDate: document.getElementById("fromDate").value,
+        toDate: document.getElementById("toDate").value
+        // Add more key-value pairs as needed
+      };
+
+      // Create a new XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+
+      // Set the request method to POST and the URL
+      xhr.open('POST', url, true);
+
+      // Set the Content-Type header to JSON
+      xhr.setRequestHeader('Content-Type', 'application/json');
+
+      // Define a function to handle the response
+      xhr.onload = function () {
+        // Check if the request was successful
+        if (xhr.status >= 200 && xhr.status < 300) {
+          // Create a Blob from the response data
+          var blob = new Blob([xhr.response], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+          // Create a link element to initiate the download
+          var downloadLink = document.createElement('a');
+          downloadLink.href = window.URL.createObjectURL(blob);
+          downloadLink.download = 'exported_data.xlsx'; // Name of the downloaded file
+          // Append the link to the document body and trigger the click event to start the download
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          // Clean up
+          document.body.removeChild(downloadLink);
+          window.URL.revokeObjectURL(downloadLink.href);
+        } else {
+          // If not successful, log the error
+          console.error('Request failed with status:', xhr.status);
+          // Optionally, show an error message to the user
+        }
+      };
+
+      // Define a function to handle errors
+      xhr.onerror = function () {
+        console.error('Request failed');
+        // Optionally, show an error message to the user
+      };
+
+      // Convert the JSON data to a string and send the request
+      xhr.send(JSON.stringify(jsonData));
+    });
+  </script>
 </body>
+
 </html>
