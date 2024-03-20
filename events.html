@@ -180,60 +180,65 @@
         <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
     </div>
 
-    <div class="card-container">
-        <div class="card" onclick="showDetails('John Doe', '123456', 'CS101', '2022-09-01', '2022-09-30')">
-            <div class="card-content">
-                <img src="https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?s=2048x2048&w=is&k=20&c=WVJmGWutzcAz-oWOLFUZfZ3zbRZKZOSXo8mPLTrEMZY=" alt="Profile Image">
-            <h3>John Doe</h3>
-            <p>Roll No: 123456</p>
-            <p>Class Code: CS101</p>
-            <p>From: 2022-09-01</p>
-            <p>To: 2022-09-30</p>
-        </div>
-     </div>
-        <div class="card" onclick="showDetails('John Doe', '123456', 'CS101', '2022-09-01', '2022-09-30')">
-            <div class="card-content">
-                <img src="https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?s=2048x2048&w=is&k=20&c=WVJmGWutzcAz-oWOLFUZfZ3zbRZKZOSXo8mPLTrEMZY=" alt="Profile Image">
-            <h3>John Doe</h3>
-            <p>Roll No: 123456</p>
-            <p>Class Code: CS101</p>
-            <p>From: 2022-09-01</p>
-            <p>To: 2022-09-30</p>
-        </div>
-     </div>
-        <div class="card" onclick="showDetails('John Doe', '123456', 'CS101', '2022-09-01', '2022-09-30')">
-            <div class="card-content">
-                <img src="https://media.istockphoto.com/id/1311084168/photo/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter.webp?s=2048x2048&w=is&k=20&c=WVJmGWutzcAz-oWOLFUZfZ3zbRZKZOSXo8mPLTrEMZY=" alt="Profile Image">
-            <h3>John Doe</h3>
-            <p>Roll No: 123456</p>
-            <p>Class Code: CS101</p>
-            <p>From: 2022-09-01</p>
-            <p>To: 2022-09-30</p>
-        </div>
-     </div>
+    <div class="card-container" id="cardContainer">
+        <!-- Cards will be dynamically populated here -->
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // Function to fetch events from the API and populate the cards
+        async function fetchAndPopulateEvents() {
+            try {
+                const response = await axios.post('https://possible-flamingo-large.ngrok-free.app/events/pending/sugankpms');
+                console.log('API Response:', response.data);
 
+                const eventData = response.data;
 
+                if (eventData) {
+                    const cardContainer = document.getElementById('cardContainer');
 
-     </div  >
-
-
-        <script>
-            function showDetails(name, rollNo, classCode, fromDate, toDate) {
-                // Create a popup window
-                var popupWindow = window.open("", "Details", "width=400,height=300");
-
-                // Set the content of the popup window
-                var content = `
-                    <h3>${name}</h3>
-                    <p>Roll No: ${rollNo}</p>
-                    <p>Class Code: ${classCode}</p>
-                    <p>From: ${fromDate}</p>
-                    <p>To: ${toDate}</p>
-                `;
-                popupWindow.document.write(content);
+                    // Create a card for each event
+                    eventData.forEach(event => {
+                        const card = document.createElement('div');
+                        card.classList.add('card');
+                        card.onclick = function() {
+                            showDetails(event);
+                        };
+                        const cardContent = `
+                            <div class="card-content">
+                                <h3>${event.title}</h3>
+                                <p>Description: ${event.description}</p>
+                                <p>From: ${event.fromDate}</p>
+                                <p>To: ${event.endDate}</p>
+                                <p>Class Code: ${event.classCode}</p>
+                            </div>
+                        `;
+                        card.innerHTML = cardContent;
+                        cardContainer.appendChild(card);
+                    });
+                } else {
+                    console.log('No events found.');
+                }
+            } catch (error) {
+                console.error('Error fetching events:', error);
             }
-        </script>
-      
+        }
+
+        // Function to show event details in a popup window
+        function showDetails(event) {
+            var popupWindow = window.open("", "Event Details", "width=400,height=300");
+            var content = `
+                <h3>${event.title}</h3>
+                <p>Description: ${event.description}</p>
+                <p>From: ${event.fromDate}</p>
+                <p>To: ${event.endDate}</p>
+                <p>Class Code: ${event.classCode}</p>
+            `;
+            popupWindow.document.write(content);
+        }
+
+        // Call the function to fetch and populate events when the page loads
+        window.onload = fetchAndPopulateEvents;
+    </script>
 </body>
 </html>
