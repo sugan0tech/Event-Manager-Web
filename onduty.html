@@ -211,7 +211,10 @@
                                 <p>Description: ${odForm.description}</p>
                                 <p>From: ${new Date(odForm.fromDate).toLocaleDateString()}</p>
                                 <p>To: ${new Date(odForm.endDate).toLocaleDateString()}</p>
-                                <p>Signature: ${odForm.signatures}</p>
+                                <p>Signature:</p>
+                                <ul>
+                                    ${odForm.signatures && odForm.signatures.map(staff => `<li>${staff}</li>`).join('')}
+                                </ul>
                                 <p>students:</p>
                                 <ul>
                                     ${odForm.studentSet && odForm.studentSet.map(rollNo => `<li>${rollNo}</li>`).join('')}

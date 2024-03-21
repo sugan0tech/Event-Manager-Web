@@ -230,59 +230,39 @@
       var option1 = document.getElementById("option1").value;
       var option2 = document.getElementById("option2").value;
       var option3 = document.getElementById("option3").value;
-
       var classCode = option1 + " " + option2 + " " + option3;
 
-      // Define the URL for the POST request
       var url = 'http://localhost:9090/export';
-
-      // Define the data to be sent in JSON format
       var jsonData = {
         classCode: classCode,
         fromDate: document.getElementById("fromDate").value,
         toDate: document.getElementById("toDate").value
-        // Add more key-value pairs as needed
       };
 
-      // Create a new XMLHttpRequest object
       var xhr = new XMLHttpRequest();
-
-      // Set the request method to POST and the URL
       xhr.open('POST', url, true);
-
-      // Set the Content-Type header to JSON
       xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.responseType = 'blob';
 
-      // Define a function to handle the response
       xhr.onload = function () {
-        // Check if the request was successful
         if (xhr.status >= 200 && xhr.status < 300) {
-          // Create a Blob from the response data
           var blob = new Blob([xhr.response], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-          // Create a link element to initiate the download
           var downloadLink = document.createElement('a');
           downloadLink.href = window.URL.createObjectURL(blob);
-          downloadLink.download = 'exported_data.xlsx'; // Name of the downloaded file
-          // Append the link to the document body and trigger the click event to start the download
+          downloadLink.download = 'exported_data.xlsx';
           document.body.appendChild(downloadLink);
           downloadLink.click();
-          // Clean up
           document.body.removeChild(downloadLink);
           window.URL.revokeObjectURL(downloadLink.href);
         } else {
-          // If not successful, log the error
           console.error('Request failed with status:', xhr.status);
-          // Optionally, show an error message to the user
         }
       };
 
-      // Define a function to handle errors
       xhr.onerror = function () {
         console.error('Request failed');
-        // Optionally, show an error message to the user
       };
 
-      // Convert the JSON data to a string and send the request
       xhr.send(JSON.stringify(jsonData));
     });
   </script>
