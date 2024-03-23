@@ -232,11 +232,11 @@
       var option3 = document.getElementById("option3").value;
       var classCode = option1 + " " + option2 + " " + option3;
 
-      var url = 'http://localhost:9090/export';
+      var url = 'https://possible-flamingo-large.ngrok-free.app/go/export';
       var jsonData = {
         classCode: classCode,
-        fromDate: document.getElementById("fromDate").value,
-        toDate: document.getElementById("toDate").value
+        from: document.getElementById("fromDate").value,
+        to: document.getElementById("toDate").value
       };
 
       var xhr = new XMLHttpRequest();
