@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Event Form</title>
+<style>
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #attendanceForm {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Add Event</h2>
+    <form id="eventForm">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="classCode">Class Code:</label>
+            <select id="option1">
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+                <option value="NULL">NULL</option>
+              </select>
+              <select id="option2">
+                <option value="CSE">CSE</option>
+                <option value="Mech">Mech</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="NULL">NULL</option>
+              </select>
+              <select id="option3">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="NULL">NULL</option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="fromDate">From Date:</label>
+            <input type="datetime-local" id="fromDate" name="fromDate" required>
+        </div>
+        <div class="form-group">
+            <label for="endDate">End Date:</label>
+            <input type="datetime-local" id="endDate" name="endDate" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <select id="location" name="location" required>
+                <option value="">Select Location</option>
+                <option value="REMOTE">REMOTE</option>
+                <option value="KRISHNA_HALL">KRISHNA_HALL</option>
+                <option value="BS01">BS01</option>
+                <option value="BS02">BS02</option>
+                <option value="BS03">BS03</option>
+                <option value="BS04">BS04</option>
+                <option value="SEMINAR_HALL">SEMINAR_HALL</option>
+                <option value="CONFERENCE_HALL">CONFERENCE_HALL</option>
+                <option value="JB_LAB">JB_LAB</option>
+                <option value="AK_LAB">AK_LAB</option>
+            </select>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
