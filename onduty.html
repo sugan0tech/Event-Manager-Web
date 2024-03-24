@@ -168,8 +168,35 @@
             height: auto;
         }
 
-        
-       
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .buttons button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button.edit-button {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .buttons button.delete-button {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .buttons button:hover {
+            opacity: 0.8;
+        }
+
     </style>
 </head>
 <body>
@@ -179,13 +206,17 @@
         <a href="./onduty.html">On Duty</a>
         <a href="./events.html">Events</a>
         <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
+
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <div class="card-container" id="cardContainer">
+        <!-- Cards will be dynamically populated here -->
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // JavaScript functions remain unchanged
 
-     <script>
         // Function to fetch events from the API and populate the cards
         async function fetchAndPopulateEvents() {
             try {
@@ -224,6 +255,10 @@
                                 <ul>
                                     ${odForm.mentorSet && odForm.mentorSet.map(mentor => `<li>${mentor}</li>`).join('')}
                                 </ul>
+                                <div class="buttons">
+                                    <button class="edit-button" onclick="editEvent()">Sign</button>
+                                    <button class="delete-button" onclick="deleteEvent()">Cancel</button>
+                                </div>
                             </div>
                         `;
                         card.innerHTML = cardContent;
@@ -261,10 +296,25 @@
             popupWindow.document.write(content);
         }
 
+        // Function to handle edit event action
+        function editEvent() {
+            // Add your edit event logic here
+            console.log('Signed');
+        }
+
+        // Function to handle delete event action
+        function deleteEvent() {
+            // Add your delete event logic here
+            console.log('Canceled');
+        }
+
         // Call the function to fetch and populate events when the page loads
         console.log("shit shit")
         window.onload = fetchAndPopulateEvents;
+
     </script>
-      
+
+    <!-- Anchor tag button for creating OD -->
+    <a href="./create_od.html" style="position: fixed; bottom: 20px; right: 20px; background-color: #4CAF50; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Create OD</a>
 </body>
 </html>
