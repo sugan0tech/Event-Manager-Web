@@ -246,7 +246,9 @@
 
         // Function to show event details in a popup window
         function showDetails(event) {
-            var popupWindow = window.open("", "Event Details", "width=400,height=300");
+            var leftPosition = (screen.width - 600) / 2;
+            var topPosition = (screen.height - 400) / 2;
+            var popupWindow = window.open("create_event.html", "_blank", "width=600,height=400,left=" + leftPosition + ",top=" + topPosition);
             var content = `
                 <h3>${event.title}</h3>
                 <p>Description: ${event.description}</p>
