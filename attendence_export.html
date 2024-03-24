@@ -249,7 +249,7 @@
           var blob = new Blob([xhr.response], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
           var downloadLink = document.createElement('a');
           downloadLink.href = window.URL.createObjectURL(blob);
-          downloadLink.download = 'exported_data.xlsx';
+        downloadLink.download = `export_${jsonData.from}to${jsonData.to}.xlsx`;
           document.body.appendChild(downloadLink);
           downloadLink.click();
           document.body.removeChild(downloadLink);
