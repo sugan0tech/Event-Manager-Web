@@ -313,8 +313,8 @@
         console.log(response)
         const hallContainer = document.getElementById('hallContainer');
         for (const hallName in data) {
-          const hallStatus = data[hallName] ? 'Available' : 'Not Available';
-          const hallClass = data[hallName] ? 'available' : 'not-available';
+          const hallStatus = !data[hallName] ? 'Available' : 'Not Available';
+          const hallClass = !data[hallName] ? 'available' : 'not-available';
           const hallDiv = document.createElement('div');
           hallDiv.classList.add('hall', hallClass);
           hallDiv.innerHTML = `
