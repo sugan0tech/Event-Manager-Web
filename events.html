@@ -16,6 +16,24 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 10px;
         }
+
+        .add-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       }
+
+       .add-button:hover {
+        background-color: #555;
+        }
         
         .navbar a {
             padding: 10px;
@@ -242,5 +260,17 @@
         // Call the function to fetch and populate events when the page loads
         window.onload = fetchAndPopulateEvents;
     </script>
+    <button class="add-button" onclick="openCreateEventWindow()">Add Event</button>
+    <script>
+        function openCreateEventWindow() {
+            // Calculate the position to center the window
+            var leftPosition = (screen.width - 600) / 2;
+            var topPosition = (screen.height - 400) / 2;
+    
+            // Open create_event.html in a new window at the center of the screen
+            window.open("create_event.html", "_blank", "width=600,height=400,left=" + leftPosition + ",top=" + topPosition);
+        }
+    </script>
+    
 </body>
 </html>
