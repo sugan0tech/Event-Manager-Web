@@ -1,315 +1,331 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Dashboard</title>
-    <style>
-        .navbar {
-            overflow: hidden;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            background-color: #f1f1f1;
-            padding: 10px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-        }
-        
-        .navbar a {
-            padding: 10px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            border-radius: 5px;
-        }
-        
-        .navbar a:hover {
-            color: #ffffff;
-            background-color: #f1f1f1;
-        }
-        
-        
-        .dashboard-content {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dashboard-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-        
-        .dashboard-description {
-            font-size: 16px;
-            color: #777;
-        }
+  <title>Dashboard</title>
+  <style>
+    .navbar {
+      overflow: hidden;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      background-color: #f1f1f1;
+      padding: 10px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+    }
 
-        .as {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
+    .navbar a {
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      border-radius: 5px;
+    }
 
-        .as a {
-            padding: 10px;
-            color: #fff;
-            background-color: #333;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .navbar a:hover {
+      color: #ffffff;
+      background-color: #f1f1f1;
+    }
 
-        .a:hover {
-            background-color: #555;
-            color: white;
-        }
 
-        .navbar a {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .dashboard-content {
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .navbar a:hover {
-            background-color: #555;
-        }
+    .dashboard-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+    .dashboard-description {
+      font-size: 16px;
+      color: #777;
+    }
 
-        #attendanceForm {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 400px;
-            margin-top: 20px;
-        }
+    .as {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    .as a {
+      padding: 10px;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+    .a:hover {
+      background-color: #555;
+      color: white;
+    }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    .navbar a {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    .navbar a:hover {
+      background-color: #555;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #attendanceForm {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="navbar">
-        <a href="./attendence_export.html">Attendance Export</a>
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./onduty.html">On Duty</a>
-        <a href="./events.html">Events</a>
-        <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
-    </div>
-    
-    <!-- Add your dashboard content here -->
-    
-    
+  <div class="navbar">
+    <a href="./attendence_export.html">Attendance Export</a>
+    <a href="./dashboard.html">Dashboard</a>
+    <a href="./onduty.html">On Duty</a>
+    <a href="./events.html">Events</a>
+    <a href="./login.html" style="background: rgba(239, 29, 29, 0.695);">Logout</a>
+  </div>
+
+  <!-- Add your dashboard content here -->
+
+
 </body>
+
 </html>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combined Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combined Page</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .section {
-            flex: 1;
-            margin: 10px;
-        }
+    .section {
+      flex: 1;
+      margin: 10px;
+    }
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
 
-        .event, .hall, .availability, .availability form {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    .event,
+    .hall,
+    .availability,
+    .availability form {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-        .event h2, .hall h2 {
-            margin-top: 0;
-            color: #007bff;
-        }
+    .event h2,
+    .hall h2 {
+      margin-top: 0;
+      color: #007bff;
+    }
 
-        .hall-container {
-            height: 400px; /* Fixed height */
-            overflow-y: auto; /* Enable vertical scrollbar */
-        }
+    .hall-container {
+      height: 400px;
+      /* Fixed height */
+      overflow-y: auto;
+      /* Enable vertical scrollbar */
+    }
 
-        .hall.not-available {
-            background-color: #ffcccc;
-        }
+    .hall.not-available {
+      background-color: #ffcccc;
+    }
 
-        .availability {
-            text-align: center;
-            font-weight: bold;
-        }
+    .availability {
+      text-align: center;
+      font-weight: bold;
+    }
 
-        .available {
-            color: green;
-        }
+    .available {
+      color: green;
+    }
 
-        .not-available {
-            color: red;
-        }
+    .not-available {
+      color: red;
+    }
 
-        input[type="text"], input[type="submit"] {
-            width: calc(100% - 22px); /* 22px to account for padding and border */
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+    input[type="text"],
+    input[type="submit"] {
+      width: calc(100% - 22px);
+      /* 22px to account for padding and border */
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="section">
-            <h1>Ongoing Events for Teacher</h1>
-            <div class="event">
-                <h2>Class: CSE C</h2>
-                <p>Time: March 09, 2024, 10:00 AM - 12:00 PM</p>
-            </div>
-            <div class="event">
-                <h2>Class: CSE B</h2>
-                <p>Time: March 09, 2024, 1:00 PM - 3:00 PM</p>
-            </div>
-            <div class="event">
-                <h2>Event: Seminar</h2>
-                <p>Location: Seminar Hall</p>
-                <p>Time: March 09, 2024, 9:00 AM - 12:00 PM</p>
-            </div>
-        </div>
-        <div class="section">
-            <h1>Check <br>Hall Availability</h1>
-            <div class="hall-container"> <!-- Add a container for scrolling -->
-                <div class="hall">
-                    <h2>Krishna Hall</h2>
-                    <p>Status: Available</p>
-                </div>
-                <div class="hall not-available">
-                    <h2>Seminar Hall</h2>
-                    <p>Status: Not Available</p>
-                </div>
-                <div class="hall not-available">
-                    <h2>BS-01</h2>
-                    <p>Status: Not Available</p>
-                </div>
-                <!-- Other hall entries -->
-                <div class="hall available">
-                    <h2>Nicholas</h2>
-                    <p>Status: Available</p>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <h1>Check<br> Teacher Availability</h1>
-            <div class="availability">
-                <form id="availabilityForm">
-                    <label for="teacherID">Teacher's Email:</label>
-                    <input type="text" id="teacherID" name="teacherID" placeholder="Enter your email prefix" required>
-                    <input type="submit" value="Check Availability">
-                </form>
-                <div id="availabilityResult" style="display: none;"></div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section">
+      <h1>Ongoing Events for Teacher</h1>
+      <div class="event">
+        <h2>Class: CSE C</h2>
+        <p>Time: March 09, 2024, 10:00 AM - 12:00 PM</p>
+      </div>
+      <div class="event">
+        <h2>Class: CSE B</h2>
+        <p>Time: March 09, 2024, 1:00 PM - 3:00 PM</p>
+      </div>
+      <div class="event">
+        <h2>Event: Seminar</h2>
+        <p>Location: Seminar Hall</p>
+        <p>Time: March 09, 2024, 9:00 AM - 12:00 PM</p>
+      </div>
     </div>
+    <div class="section" <div class="section">
+      <h1>Check <br>Hall Availability</h1>
+      <div class="hall-container" id="hallContainer"> <!-- Add a container for scrolling -->
+        <!-- Hall entries will be added dynamically here -->
+      </div>
+      <h1>Check<br> Teacher Availability</h1>
+      <div class="availability">
+        <form id="availabilityForm">
+          <label for="teacherID">Teacher's Email:</label>
+          <input type="text" id="teacherID" name="teacherID" placeholder="Enter your email prefix" required>
+          <input type="submit" value="Check Availability">
+        </form>
+        <div id="availabilityResult" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        document.getElementById('availabilityForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var teacherID = document.getElementById('teacherID').value;
-            // Here you would implement the logic to check availability based on teacherID
-            // For demonstration purposes, let's assume availability is randomly determined
-            var isAvailable = Math.random() < 0.5; // Randomly assigns availability
+  <script>
+    document.getElementById('availabilityForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var teacherID = document.getElementById('teacherID').value;
+      // Here you would implement the logic to check availability based on teacherID
+      // For demonstration purposes, let's assume availability is randomly determined
+      var isAvailable = Math.random() < 0.5; // Randomly assigns availability
 
-            var availabilityResult = document.getElementById('availabilityResult');
-            availabilityResult.style.display = 'block';
-            availabilityResult.textContent = "Teacher is " + (isAvailable ? "available" : "not available");
-            availabilityResult.className = isAvailable ? 'availability available' : 'availability not-available';
-        });
-    </script>
+      var availabilityResult = document.getElementById('availabilityResult');
+      availabilityResult.style.display = 'block';
+      availabilityResult.textContent = "Teacher is " + (isAvailable ? "available" : "not available");
+      availabilityResult.className = isAvailable ? 'availability available' : 'availability not-available';
+    });
+    // Make a GET request to the endpoint
+    axios.post('https://possible-flamingo-large.ngrok-free.app/events/slots')
+      .then(response => {
+        const data = response.data;
+        console.log(response)
+        const hallContainer = document.getElementById('hallContainer');
+        for (const hallName in data) {
+          const hallStatus = data[hallName] ? 'Available' : 'Not Available';
+          const hallClass = data[hallName] ? 'available' : 'not-available';
+          const hallDiv = document.createElement('div');
+          hallDiv.classList.add('hall', hallClass);
+          hallDiv.innerHTML = `
+                <h2>${hallName.toLowerCase().replace(/_/g, ' ')}</h2>
+                <p>Status: ${hallStatus}</p>
+            `;
+          hallContainer.appendChild(hallDiv);
+        }
+      })
+      .catch(error => console.error('Error fetching hall availability:', error));
+  </script>
 </body>
+
 </html>
