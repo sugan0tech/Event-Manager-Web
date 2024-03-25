@@ -170,8 +170,9 @@
 
         .buttons {
             display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
+            justify-content: center; /* Align buttons horizontally at the center */
+            align-items: flex-end; /* Align buttons vertically at the bottom */
+            margin-top: auto; /* Push buttons to the bottom */
         }
 
         .buttons button {
@@ -181,6 +182,7 @@
             cursor: pointer;
             font-size: 14px;
             transition: background-color 0.3s ease;
+            margin: 5px; /* Add some margin between buttons */
         }
 
         .buttons button.edit-button {
