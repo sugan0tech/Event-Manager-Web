@@ -164,7 +164,8 @@
 <script>
     document.getElementById("eventForm").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent the default form submission
-
+        
+            
         // Get form data
         var formData = new FormData(this);
 
@@ -174,6 +175,7 @@
         for (var pair of formData.entries()) {
             console.log(pair[0] + ': ' + pair[1]);
         }
+        
 
         // Here you can send the form data to the server using AJAX or any other method
     });
